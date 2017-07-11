@@ -1,7 +1,7 @@
 ## AQUARIUS
 
-a python pacakage that reads in Aqurius csv data files into python pandas
-dataframes
+set of python helper functions that read in Aqurius csv data files into a python pandas
+dataframe
 
 
 
