@@ -1,6 +1,6 @@
 ## AQUARIUS
 
-set of python helper functions that read in Aqurius csv data files into a python pandas
+set of python helper functions that read in Aquarius csv data files into a python pandas
 dataframe
 
 
