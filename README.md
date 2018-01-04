@@ -9,10 +9,8 @@ See examples/aquarius_example.py for usage
 
 Requirements:
 --------------
+
 * pandas
-* urllib2
-
-
 
 Installation:
 ------------
