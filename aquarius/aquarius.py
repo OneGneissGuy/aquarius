@@ -32,25 +32,26 @@ def read_aq_metadata(filename):
         if line[0] == "#":
             line2 = line[1:].lstrip().rstrip()
             if line2.startswith('Time series identifier:'):
-                ts_ID = line2.split(':')[1].lstrip().rstrip()
-                site_ID = ts_ID.split('@')[-1].lstrip().rstrip()
+                ts_ID = line2.split(':')[1].lstrip().rstrip().strip(',')
+                site_ID = ts_ID.split('@')[-1].lstrip().rstrip().strip(',')
                 out_dict['time series id'] = ts_ID
                 out_dict['site'] = site_ID
-            if line2.startswith('Location:'):                
-                out_dict['location'] = line2.split(' ')[-1].lstrip().rstrip()
+            if line2.startswith('Location:'):
+                out_dict['location'] = line2.split(':')[-1].lstrip().rstrip().strip(',')
             if line2.startswith('UTC offset:'):
-                tz_off = line2.split(' ')[-1]
+                tz_off = line2.split(' ')[-1].strip(',')
                 if tz_off.startswith('(') and tz_off.endswith(')'):
                     out_dict['UTC offset'] = tz_off[1:-1]
             if line2.startswith('Value units:'):
-                    out_dict['units'] = line2.split(':')[1].lstrip().rstrip()
+                    out_dict['units'] = line2.split(':')[1].lstrip().rstrip().strip(',')
             if line2.startswith('Value parameter:'):
-                out_dict['parameter']= line2.split(':')[1].lstrip().rstrip()
+                out_dict['parameter']= line2.split(':')[1].lstrip().rstrip().strip(',')
             if line2.startswith("CSV"):
-                out_dict['header_rows'] = int(line2.split(' ')[-1].lstrip().rstrip()[:-1])
+                out_dict['header_rows'] = int(line2.split(' ')[-1].lstrip().rstrip()[:-1].strip(',').split('.')[0])
         else:
             break #quit reading the file once we've read the header
     return out_dict
+
 
 
 def read_aq(filename, UTC=False):
