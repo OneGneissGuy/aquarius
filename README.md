@@ -49,7 +49,7 @@ This software is provided "AS IS."
 
 Author(s):
 ------
-John Franco Saraceno, <saraceno@usgs.gov>
+JohnFranco Saraceno
 
 More information:
 -----------------
